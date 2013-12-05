@@ -1,5 +1,6 @@
 # encoding: UTF-8
 require 'mysql2'
+require 'sqlite3'
 require 'sequel'
 require 'yaml'
 

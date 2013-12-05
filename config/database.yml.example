@@ -1,6 +1,6 @@
 development:
   database: about_sql
   host: localhost
-  adapter: mysql2
-  user: root
-  password: hesloA
+  adapter:
+  user:
+  password:

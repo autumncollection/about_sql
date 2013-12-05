@@ -1,0 +1,37 @@
+h2 Společnosti
+
+form method='post' action='/brewery#{"/#{@brewery[:id]}" if defined?(@brewery)}'
+  label for='name'
+    | Jméno společnosti
+  input type='text' name='name' id='name' value='#{@brewery[:name] if defined?(@brewery)}'
+  label for='address'
+    | Adresa společnosti
+  input type='text' name='address' id='address' value='#{@brewery[:address] if defined?(@brewery)}'
+  - if defined?(@brewery)
+    input type='submit' value='Edituj společnost'
+    input type='hidden' value='put' name='_method'
+  - else
+    input type='submit' value='Přidej společnost'
+
+h2 Pivovary
+- if defined?(@breweries)
+  table style='width: 95%;'
+    thead
+      tr
+        th Jméno
+        th Adresa
+        th colspan='2' Akce
+    tbody
+      - @breweries.each do |brewery|
+        tr
+          td
+            a href='/brewery/#{brewery[:id]}'
+            = brewery[:name]
+          td
+            = brewery[:address]
+          td
+            a href='/brewery/#{brewery[:id]}/edit' Edit
+          td
+            form method='post' action='/brewery/#{brewery[:id]}' style='display: inline-block'
+              input type='hidden' value='delete' name='_method'
+              input type='submit' value='x'

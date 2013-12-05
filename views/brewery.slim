@@ -1,0 +1,38 @@
+h2
+  ' Piva pivovaru
+  = @brewery[:name]
+
+form method='post' action='/brewery/#{@brewery[:id]}/brand#{"/#{@brand[:id]}" if defined?(@brand)}'
+  label for='name'
+    | Jméno piva
+  input type='text' name='name' id='name' value='#{@brand[:name] if defined?(@brand)}'
+  label for='voltage'
+    | Stupňů
+  input type='text' name='voltage' id='voltage' value='#{@brand[:voltage] if defined?(@brand)}'
+  - if defined?(@brand)
+    input type='submit' value='Edituj pivo'
+    input type='hidden' value='put' name='_method'
+  - else
+    input type='submit' value='Přidej pivo'
+
+h2 Piva
+- if defined?(@brands)
+  table style='width: 95%;'
+    thead
+      tr
+        th Jméno
+        th Stupňů
+        th colspan='2' Akce
+    tbody
+      - @brands.each do |brand|
+        tr
+          td
+            = brand[:name]
+          td
+            = brand[:voltage]
+          td
+            a href='/brewery/#{brand[:brewery_id]}/brand/#{brand[:id]}' Edit
+          td
+            form method='post' action='#{brand[:brewery_id]}/brand/#{brand[:id]}' style='display: inline-block'
+              input type='hidden' value='delete' name='_method'
+              input type='submit' value='x'

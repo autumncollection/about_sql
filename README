@@ -1,0 +1,16 @@
+What to do after clone:
+
+1. $ bundle install
+2. $ cp -rp ./config/database.yml.example ./config/database.yml
+3. Fill file database.yml with properly information about your database connection (create database ?)
+4. $ shotgun -p 3000
+5. Go to your browser!
+
+What to do after install:
+
+0. Please, wait to Tomas and his signal!
+1. Create migrations to ./config/migrations/ (google it!)
+2. run $ bundle exec rake db:migrate
+3. Remove comments from lines 24 and 28
+4. Create properly paths in ./lib/app.rb (you can find them on ./views/index.slim and ./views/brewery.slim)
+5. Develop!
