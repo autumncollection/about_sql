@@ -33,6 +33,6 @@ h2 Piva
           td
             a href='/brewery/#{brand[:brewery_id]}/brand/#{brand[:id]}' Edit
           td
-            form method='post' action='#{brand[:brewery_id]}/brand/#{brand[:id]}' style='display: inline-block'
+            form method='post' action='/brewery/#{brand[:brewery_id]}/brand/#{brand[:id]}' style='display: inline-block'
               input type='hidden' value='delete' name='_method'
               input type='submit' value='x'

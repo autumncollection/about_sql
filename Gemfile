@@ -4,6 +4,7 @@ gem "sinatra",              "~> 1.3.5"
 gem 'sinatra-contrib'
 gem 'sinatra-content-for2'
 gem 'slim'
+gem 'rake'
 
 # database
 gem "mysql2",               "~> 0.3.11"
